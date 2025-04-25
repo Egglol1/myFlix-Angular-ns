@@ -30,27 +30,23 @@ export class UserLoginFormComponent implements OnInit{
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
     public snackBar: MatSnackBar,
-    public router: Router
   ) { }
 
   ngOnInit(): void { }
 
   userLogin(): void {
-    this.fetchApiData.userLogin(this.userData).subscribe(
-      (result) => {
-        localStorage.setItem('user', JSON.stringify(result.user));
-        localStorage.setItem('token', result.token);
-        this.dialogRef.close();
-        this.snackBar.open('Login successful', 'OK', {
-          duration: 2000,
-        });
-        this.router.navigate(["movies"])
-      },
-      (result) => {
-        this.snackBar.open('Login failed' + result, 'OK', {
-          duration: 2000,
-        });
-      }
-    );
+    this.fetchApiData.userLogin(this.userData).subscribe((result) => {
+      localStorage.setItem('user', JSON.stringify(result.user));
+      localStorage.setItem('token', JSON.stringify(result.token));
+      // Logic for a successful user login goes here! (To be implemented)
+      this.dialogRef.close(); // This will close the modal on success!
+      this.snackBar.open(result, 'OK', {
+        duration: 2000
+      });
+    }, (result) => {
+      this.snackBar.open(result, 'OK', {
+        duration: 2000
+      });
+    });
   }
 }

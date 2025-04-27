@@ -15,10 +15,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     MatCardModule,
     MatFormField,
-    MatCardModule,
     MatButtonModule,
     CommonModule,
-    FormsModule
+    FormsModule,
   ],
   templateUrl: './user-login-form.component.html',
   styleUrl: './user-login-form.component.scss'
@@ -30,6 +29,7 @@ export class UserLoginFormComponent implements OnInit{
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
     public snackBar: MatSnackBar,
+    public router: Router,
   ) { }
 
   ngOnInit(): void { }
@@ -43,6 +43,7 @@ export class UserLoginFormComponent implements OnInit{
       this.snackBar.open(result, 'OK', {
         duration: 2000
       });
+      this.router.navigate(['movies']);
     }, (result) => {
       this.snackBar.open(result, 'OK', {
         duration: 2000

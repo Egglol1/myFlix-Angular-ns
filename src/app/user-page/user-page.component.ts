@@ -5,6 +5,10 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 
+import { DirectorDialogComponent } from '../director-dialog/director-dialog.component';
+import { GenreDialogComponent } from '../genre-dialog/genre-dialog.component';
+import { MovieDetailsDialogComponent } from '../movie-details-dialog/movie-details-dialog.component';
+
 @Component({
   selector: 'app-user-page',
   standalone: false,

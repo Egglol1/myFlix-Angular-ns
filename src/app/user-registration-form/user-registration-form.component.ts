@@ -33,7 +33,13 @@ import { CommonModule } from '@angular/common';
 })
 export class UserRegistrationFormComponent implements OnInit {
 
-  @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
+  @Input() userData = { 
+    Username: '',
+    Password: '', 
+    Email: '', 
+    Birthday: '', 
+    Favorites: [''] 
+  };
 
   constructor(
     public fetchApiData: FetchApiDataService,

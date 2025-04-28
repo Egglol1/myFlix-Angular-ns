@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<h2 mat-dialog-title class="dialog-title">{{director.Name}} </h2>
+<div class="dialog-content">
+  <p>Bio: {{director.Bio}}</p>
+  <p>Birth: {{director.Birth}}</p>
+</div>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="closeDialog()" color="primary">close</button>
+</mat-dialog-actions>

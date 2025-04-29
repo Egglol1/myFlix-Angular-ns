@@ -25,7 +25,9 @@ export class FetchApiDataService {
       return this.http.post(apiUrl + 'login', userDetails).pipe(
         map((response: any) => {
           if (response.token) {
-            localStorage.setItem('token', response.token); // Store token after login
+            let s = response.token
+            let res = s.replace(/"/g, '');
+            localStorage.setItem('token', res); // Store token after login
           }
           return response;
         }),
@@ -118,7 +120,7 @@ export class FetchApiDataService {
       } else {
         console.error(
           `Error Status code ${error.status}, ` +
-          `Error Body is: ${error.error}`
+          `Error Body is: ${error.error}, `
         );
       }
       return throwError(

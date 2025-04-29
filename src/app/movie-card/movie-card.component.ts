@@ -37,7 +37,7 @@ getMovies(): void {
   isFavorite(movieId: string): boolean {
     const localUser: string | null = localStorage.getItem('user');
     const parsedUser: any = localUser && JSON.parse(localUser);
-    return parsedUser.FavoriteMovies.includes(movieId);
+    return parsedUser.Favorites.includes(movieId);
   }
 
   handleFavorite(movieId: string): void {
@@ -56,6 +56,7 @@ getMovies(): void {
             duration: 2000,
           }
         );
+        parsedUser.Favorites = localFavorites
         localStorage.setItem('user', JSON.stringify(parsedUser));
       }, 
       )
@@ -71,6 +72,7 @@ getMovies(): void {
             duration: 2000,
           }
         );
+        parsedUser.Favorites = localFavorites
         localStorage.setItem('user', JSON.stringify(parsedUser));
       }, 
       )

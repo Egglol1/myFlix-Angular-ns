@@ -25,8 +25,7 @@ export class FetchApiDataService {
       return this.http.post(apiUrl + 'login', userDetails).pipe(
         map((response: any) => {
           if (response.token) {
-            let s = response.token
-            let res = s.replace(/"/g, '');
+            let res = JSON.stringify(response.token);
             localStorage.setItem('token', res); // Store token after login
           }
           return response;
@@ -37,7 +36,7 @@ export class FetchApiDataService {
   
     //get auth headers
     private getAuthHeaders(): HttpHeaders {
-      const token = localStorage.getItem('token') || '';
+      const token = JSON.parse(localStorage.getItem('token') || '') || '';
       return new HttpHeaders({
         Authorization: `Bearer ${token}`,
       });

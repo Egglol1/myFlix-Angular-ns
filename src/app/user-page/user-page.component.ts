@@ -30,6 +30,10 @@ export class UserPageComponent implements OnInit{
     this.fetchData();
   }
 
+  /**
+   * This function grabs a user's data and uses it to find their favorites
+   * @returns a list of your favorite movies
+   */
   fetchData(): void {
     const userData = JSON.parse(localStorage.getItem('user') || '');
     if (userData === '') {
@@ -41,6 +45,9 @@ export class UserPageComponent implements OnInit{
     this.getFavoriteMovies();
   }
 
+  /**
+   * This function takes altered user data and updates the database to match it
+   */
   updateUserData(): void {
     let userData = JSON.parse(localStorage.getItem('user') || '');
     if (userData === '') {
@@ -66,6 +73,10 @@ export class UserPageComponent implements OnInit{
     )
   }
 
+  /**
+   * This function uses your username to get your favorite movies
+   * @returns a list of your favorite movies
+   */
   getFavoriteMovies(): void {
     const userData = JSON.parse(localStorage.getItem('user') || '');
     if (userData === '') {
@@ -81,6 +92,10 @@ export class UserPageComponent implements OnInit{
     });
   }
 
+  /**
+   * This function removes a movie from your favorites
+   * @param movieId The id of the movie to be removed
+   */
   removeFavorite(movieId: string): void {
     const localFavorites: any[] = [...this.favoriteMovies];
 

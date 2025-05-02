@@ -7,6 +7,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./genre-dialog.component.scss'],
   standalone: false,
 })
+/**
+ * Dialog box containing details about a genre
+ */
 export class GenreDialogComponent {
 
   constructor(

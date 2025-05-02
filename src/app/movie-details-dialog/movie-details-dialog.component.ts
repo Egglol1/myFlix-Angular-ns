@@ -7,6 +7,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./movie-details-dialog.component.scss'],
   standalone: false,
 })
+/**
+ * Dialog box containing details about a movie
+ */
 export class MovieDetailsDialogComponent {
 
   constructor(

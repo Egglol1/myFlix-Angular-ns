@@ -7,6 +7,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./director-dialog.component.scss'],
   standalone: false,
 })
+/**
+ * Dialog box containing details about a director
+ */
 export class DirectorDialogComponent {
 
   constructor(

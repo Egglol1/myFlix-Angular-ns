@@ -13,6 +13,9 @@ import { MovieDetailsDialogComponent } from '../movie-details-dialog/movie-detai
   styleUrls: ['./movie-card.component.scss'],
   standalone: false
 })
+/**
+ * The movie card that renders the buttons and poster
+ */
 export class MovieCardComponent implements OnInit{
   movies: any[] = [];
   constructor(
@@ -21,17 +24,17 @@ export class MovieCardComponent implements OnInit{
     public snackBar: MatSnackBar
   ) { }
 
-ngOnInit(): void {
-  this.getMovies();
-}
-
-getMovies(): void {
-  this.fetchApiData.getAllMovies().subscribe((resp: any) => {
-      this.movies = resp;
-      console.log(this.movies);
-      return this.movies;
-    });
+  ngOnInit(): void {
+    this.getMovies();
   }
+
+  getMovies(): void {
+    this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+        this.movies = resp;
+        console.log(this.movies);
+        return this.movies;
+      });
+    }
 
 
   isFavorite(movieId: string): boolean {
@@ -40,6 +43,10 @@ getMovies(): void {
     return parsedUser.Favorites.includes(movieId);
   }
 
+  /**
+   * This function adds or removes a movie from your favorite movies depending on if it was already a favorite
+   * @param movieId - The id of the movie you want to add or remove
+   */
   handleFavorite(movieId: string): void {
     const localUser: string | null = localStorage.getItem('user');
     const parsedUser: any = localUser && JSON.parse(localUser);

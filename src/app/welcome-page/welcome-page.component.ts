@@ -10,6 +10,9 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
   styleUrls: ['./welcome-page.component.scss'],
   standalone: false
 })
+/**
+ * Welcome page component that has a login and sign in button
+ */
 export class WelcomePageComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
   ngOnInit(): void {

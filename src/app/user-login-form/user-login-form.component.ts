@@ -22,6 +22,9 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './user-login-form.component.html',
   styleUrl: './user-login-form.component.scss'
 })
+/**
+ * This is a dialog-based from for a user to log in with
+ */
 export class UserLoginFormComponent implements OnInit{
   @Input() userData = { Username: '', Password: '' };
 
@@ -38,7 +41,6 @@ export class UserLoginFormComponent implements OnInit{
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
       localStorage.setItem('user', JSON.stringify(result.user));
       localStorage.setItem('token', JSON.stringify(result.token));
-      // Logic for a successful user login goes here! (To be implemented)
       this.dialogRef.close(); // This will close the modal on success!
       this.snackBar.open(result, 'OK', {
         duration: 2000
